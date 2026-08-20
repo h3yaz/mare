@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<title>maré</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="maré">
+<meta name="theme-color" content="#15111f">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAsuUlEQVR4nO2dd5yc1XX3z7n3PmX67mzXqqOGRBGiCoQwBiyaTQ0E45IQxx/HxNiOEztxTPLa+E3e4FTb2LFx7LiBcTDN2EQY23SEKEKAhHpZtLvavlOfdu897x/PahFIi3ZmZ5s0Xz7ow2eZfebRPL8599zTLjbUzoEqVQ4Hm+wbqDJ1qYqjyohUxVFlRKriqDIiVXFUGZGqOKqMSFUcVUakKo4qI1IVR5URqYqjyohUxVFlRMRk38CEgoCAAIAIADj0QyJ66xU09C8iIrz9xwD0tpce/Rzl4kDEUBBERERKS62VJiKth4XAGUdkAASAirFQNZpIEg3rgyFyBI6MI/IDuqGjXS5HoTgQERGJQGslZaC0BCLGhWlYsWgyFk3ZdiwRq7GsaDKeVlom4mnLtBWRoeWJnS8LJZFhUcpuzxMMu10vJ4Me38sFQa/v54KgqKTUhACCMZOxUCsEoI86nRw14sBwIVBaBdJXSnLGbTtWl25J1zQ31rXW1jYlYrXRSMKyIpwJxvnwukJaExAhWtJf4e01pU+ICMAOWlgkUaB1XsrBIOjx3LZicWch31YsdjhOVgaSyEC0OBeIR5M5me7iGPINlJJSegQQsePNjXNamua1NM1L1zQl4mnDsBCRtFJaa6201kp5FBDQ8CUAAAgRpF+QMpCSEAHg4AccaiUmRMow5sdiZ9fVE4GjVbfrtjnFzdns5lxmVz6fCQIAsDk3GIPpr5LpKo5w7VBKer6HgIl47cwZy2fPXNLSNLcm2WAIU2uttFRKel6BaMgFPfAnHvBM33FFxhAZIiEe7j1BEanQeTkgl5ZIZHY0el59g6t1h+NszmZeGhzYmBns8VwiiHBuMDZ9V5zpJ47QefQDTysZj9cumLd83uwTZs5YkIjXIqBUgZRBEPhv6QDZCM+69LceuoG3Ludr7RERAEOcEYnMi8UuaW7p9rxXM4Pr+vs2DA50e57BMMo4IE47ieD0KRNExlBr5fkuZ2JG87wlC06fO2tpKtWAAIH0lJIEgO/chI4WQjSlf86e34U+RzlXANBECGAwZnMOBO1ucX1//+96ujZls1LrqBACUU+ftWZ6iIMxppT0fDdix+fNWbZs8cqZLQtMw/IDT6oAh77NY7IPYxfHW5c6EDsxGbM5d5XamBlc27V/XX9fJvBjXBiMqemgkKm+rDDGlFZFJ5+Mp09Ycs6Jx5/dWD9Lkw4Ct+gEiMhwygV5D4gVAiIvCBjiabXpM9J12/O5Rzo7n+jt7vK8uBACcYpLZOpaDkRGRJ5XtO3Y8mWrT1q6qibVEEg/kD4OeR6VpIKW41BCb8Pm3GKs3XV+2dHxYGd7NggSQuAU9kWmojjC3YTnO4zxpYvPWnHi+Y31M/3AkzJALNOlOCLjKo6htwDQRBZjES6253P3te97tLsz0BQXYmo6IlNOHIwxKYNA+nNnLV152qUzWxZKJYPAGz9ZhEyAOIbeCEATRTg3GduYGfzh3t3r+/tDozLVVpkpJI7w2btuIZmsP/v0y5YuOhOBeYFT9gakJCZMHENvB6CJYkJoot907//Bnt37XTcpDIIpJJCp4pCGBkMpefKy1WeddmkyUee6BQCagv5mRUAAjliUEhEva55xWk36h217ft3ZIRibOiZkSoiDMea6hUSi7r2rrls4f3kQ+I6TZwcSpEcxYXguEwRJw/j8oiUr03X/sWNbl+cmhTEV9DHJ4kBEIio6+UXzV7z33OsS8bTjFhCQsaPTYBwWjiiJMkGwqq5hYTzxjR3bH+/tSgiDTfZGZjKfAUMmVaCUPG/l1R+4+OMRO+66BYZsAjyMqUa4ymRlUGMYX152wifmLwi09rXmk/pRTJrlYIx5npOI1645/8NzZy1z3Hz4w8m6n6kARwyIAqU+Mnvu8YnkP23d0u25cSEma4mZnIfBGHPcQkvz/Ouv+IvZM5cUnex471SnC2EWYDAIVtSk/2P5KcuSqUwQTJb9mARxMMaKTn7JwtOvvfxTsVjKdYuM8Ym/jakMR8zJoM60/vmk5Rc2Ng0GAZ+Mr86EiiOMWBSKuTNXXHzZhTcBgJT+FFhK6C2ACODAn5MJR/SUIqJbj1/2odlzBnwfJnzzNnE+R7gxCQJ/9VlXnXXaJb7vElHFUyTvDtGBjCkOKTWs9mCME6IBYDFuMUWIkiiMU+kD1el4SEn6eMMQNYCj1CfmLYhy/t9791iM4QSqdoLEMaQM6V20+sblJ5xXcLJsopyM0CIgAiI3hME4R2RApLRSKvADV2tVLGYJmaGCXfmcoQJCrDVMgRjhPMKGav7CevRAa3VQJdh433wohZwMbpo7P21a/7xtS4TzCdPHRITPEZCAgsC76D03nrx0ddHJToCTEWqCMSaEwblBpD2vmM31Z7K9A5nuwWxvNtfvegXHyWvSrls4cK9DzzspBEOsMcyEEE22PcOOzIxGW2y72bbj3GAIgdae1opoYlQiidKm+WBH+0TqY0LEgRgE3oWrP3jyCauLxdy4OhnDmjCEybjwvGLfwP6Ozp37e/b09Xdmc/2hqQBEhgyRhXHYQ28pNA+KSBOFO0mOGOW82bbnRGNLkskTk6k50VhcCEnkKqWIxjs+o4hqDfPBzvZ/3b7FZhzGXx/jLg6GrODkVq+86pzT318oZsbPZhBpABDCFML0vGJXT9vutk17970xMNjt+w4i41xwLoZKSoeKz+mt/3g7B5eLDrcwaSJf60BrAohyPisaPa02fWa6blE8ERfC09pTCsbTkEiiOtP8/p7d39m1o9Y0xzv+Mb7iCHetZ664ePXKq1yvOE5ZNCINgKZpI2Jff+e2XRt27NrQN7A/kL4QhuAGY4wIKtIqMOyWKiJfa19ri7E50djq+obVDY1zo9HQhSSicZKIIkoK4z937/hJ294aY3xTMOMojjDStWTB6ZdddFMQeGG/YWXfIpSFZUW0Vvs6tm/c9FRb+1bHyXFhGMIMveDxK6MJvQ1N5GntaV1jGCtqaq+Y0XpyqpYj5KWEcbAi4V8myvltb2x6rLsrNZ76GC9xMGSu78xomn/t+28BIK11ZVfkMCZhmREA2L5rwyuvP9Gxf5dSgWHYnPNx1cShhCqRREUpTcZOSKaubJ15bn0DABSkrLgvQgAMABH+8tWNm7KZ8Yuvj4s4EFGpIBpJXn/F52KxpJR+ZeMZWmshDEOYbe1bX9r42M69ryGgadoAGHoekwVH1ERFpQjg7Lq662bOPqWm1lPKq3QKTRNZnPf73i2vvDwQBCZj45G/HS/LoZS8+rKbZ89c4rrFCm5PQntgW9FMtnfdS49s2rZOa2WZUTjgkE4FwqUkL6VAXNPU/OE5c2fYkWwQVDawo4gSQrw8OPCF1zYa47MBrLw4Qif0vJVXn3XqJUUnV8HtSWgwBBevbXn2mfW/zOcHbDs26dZiJBgiEeRk0GBZN82df2lzSxgaqaAJkUS1hvnjtj3f3rVjPJzTCouDMea4xUXzl79/zZ/6vlfBr4rW2raj2Wzf48/eu23XBsOwBBdaT0VZHAxH9LV2lVrd0Hjz/AUtkUi2ollWIogI/vebX3uyt6fi9WOVDJ8jopRBMpE+/5zrlFKVumy4lEQj8R17Xn3sibuz+b6IFSOgqa8MAFBEAjFpGE/0dG/NZf9i4eJz6uqzQQCV+t4gSE23HLdoay43GAQGYgXVUeG1Sin53lXXJRLpsMdk7BckIsa4adrPvPDLBx75tuPmInZM09Ts8zg8YaQ1ZRiDQfDF11/9/p7dESF4hVrvEcDTqtG2b1mwSFZ6S1gxcYRRjROPP2fh/FNct1ARJ5RICy6I9K8f+8HTzz9oCotPh6XksCgik7EI53fu3vl/t2zWAGaFqsw5YjYIVtc3XNoyo7JrVmXEgYhSylSy/qzTLg0CD1kF7k9rbRiW6zu/ePgbb2x7PhpJ0DSfhhKau1rTfLRr/+df25iXMsp5RfTBEB2lPjJ7bott+1pXSh0VE0cgvbNPuyyZqJMyOGQwSslorWwr2j+w/54H/qWza3ckkpimBuNQFFGNYWzKZm7Z+PLeYrEiISwE8LVutu0/mjPPUapSYdkKiIMh8zxn7qylxy86syILitbasqK9/R33/fpbg9neMDo+9vucOiiiuBAdjvPXr2/cUyxURB8cMSflRU3NZ6TTeSkroo8KiEOTZpyvPO3SipQpadKmaff1d9z36zsKhYxl2keNzTgYRRQTos/3v/Daxt2FQkXWlzDb99HZ8yq1ZxmrOBhjnldcuujMmTMWep47xjA5ERncdNz8Q//73Xxh0DSto1IZIYooynmv5/3d5tcyQWCNOQTOEAtSnlxT876m5lwlPNOxLwHKtuMrTnzv2Peu4a5VafnQ/35nMNtztNqMgwntR7vj/N3m1yWRYGyM3/jQ+bimdVbSMOSYTdGYxMEYcz1n+bLVjfUzg8Af+yZbCOM3T9y1r3OHZUWPemWEhP7Hxszgv2zbao3ZXQu3LQviiStmtOblWI1H+XeDgErJZDx90tJVfuCxsW1ftVYRO7bupUc2b1sXjSSOMg/03Qn3L2u79/+obU9yzM4pQ3RIvr95RqMRCWhM29oxiIOh57sLjzulJtUgZTCWQh6ttW3Hdux5dd2Lv4rY8WNKGSGKKCWMH+7d80xf75hSJAgI4BSgNRp575x03ldj+dKWLw6lVMSOnbjk7ECOaUEhIiGMbK7vsSfvOpZb3xBBIP7r9q2dnmMxXrI6EIBAuwwYxBcVE5d0fegjVo1tSFW+HSpTHAyZH3jzZp/QWD9rjOIAAMHF48/cm831C2FO6xjoWAjHhXW57h07dxgMR/s5IAAD0KBdhhziJ+Qb3t9dd0G/TLlL51jvOTmad3XZnkyZv0dAnPETlpylSY8lHqpJ21b0tS3Pbtu1wbZix+CCcjCKKMzf/np/Z/KI9RkIgEAStcPQ1snTsg1XdtWsGhApqT0GAVMKrl6dMjiWHXsqJ2WPiH7gtTYf19qyMAjcss0GEQluZLK9zzz/S0NYx6zNOJhwltz39+w6taY2bZrBQWe+vEU4yV8iSTTSQXRhMbKgKJKSAtQeC1/AOBRcffriyCkL7Ze3uzELdemfbnmWA7VSixecahpjeqJEJIS57qVH8oUBIcRkty5PCQjAZKzH837ctsfi/J1hsdBaBEg+ipqgZtVg/Qd6EiuyPKK0w0ghHDTIWRNELLz8rGQgy5yAV47l0FrG4zVzZy3zg/JrvYi0ZUbebN+6ads6244dI1GN0aCIEoaxtmv/RY3NJ9fUhPXrQ9bCRyI0m7z4CXl7tstMrQOmHQbsMF9zhlD06NyTo021Iu8owUqOqZdsOUJXdHbr4tpUvVRj2cEiALy08TGt1dizuEcZDEAS/XxfG8HQI9IeowCtWW7d+3rrL+uNLiiGPxzqUzgciOAFenaTsXJZxHGpjD1tGcsKIeD8OcvGEtgIzcb23Rt27n3dMqN6SlYITyJh2PTZ/r6nenui0tREkXlO3cV9dWv6IvMcIBj2LY4EAsF7lsegLK+01GUFpZKJeG1r88JAemNob0RN6pXXn6hajHcBAR7o2HfhqfHokozV6AMg+UjwNsfi3WEMHI9OXxxtqRODOSUEluQilvZ0GaKU/swZCxOJWqlkSb87DBGZpv1mx/aO/btM056ajQWTjiaKCv7aQHZn677amUq5jPwSZBGCAL7ULXXijCVRxyu5fbfkrz4BzJm5ZGxRL0LEVzc9JVUFasaOYhiC59NPHsmCQkIq+6NChJXLIofbEx/pBkp6tSIVseMtTfPKrgUMt699/Z1t+7aYpl31Nt4FpSEeYeveKOzo8CMWKy9owBA9n5YviNTGuVSlKaQEcYRtKQ11ralkvSq3eoOIDGFu37Wh6Ob5MZxJGSWCY39Wr12ft80ypxkjghfQ7EZjySzTLXHkf2niUEq2NM0zhFl2zRJjzPWK23e9IoRBZQTtjjGIyDLx0Rdy2YLm5eZXNZFtseULI4EsrbGlBHGElVotjfO01uWtf6HZ6Opp6xvoNLhJ1ZDokdAEtok72v1Ne7xIWSFwAABApenk42whRp3PA4BSxIFa64gVS9c2KV1mcTMRcS52t22S0q9Ib8uxAEN0ff3EKwVTsPKSFQzBD2j+DDMV40qV4NiOVhyIoJRMJesT8bRSsrwIWLim7N33hhBGNc02SojIMtnTrxczBVXeyoIIfkAtdcacRsOTJdiDUYsDUGlZV9tsGlZ5kYkwB9s30Dkw2CV4VRyjRRNYBu7Z7+9s922TlZeD0gQxG+fPMANJo3c7Ri0jBCJqqJuJWFqUbRgC4tzo6Nzl+y5O/kjr6QRnmC/ql7Y7pgHlOmqEiItnl5ZFH+1DIgLORW1tkyZVXgAMCYl0Z8/esuV1zEJAjMGrO12l3xqjWyKoFM1vMQ2Bo5fX6MWhDWElYjVa6TIdDs48z+kf6OC8WrpRGkRgGrij3c8VtCjL5iKCVNScFjGbqVEvTKN6K0TUWkfsaNg0UEb4i4g4E5l8XybXz5ioOhylQWBybO8N2nsDs8TkWUgojrokT8a4UqMNhY1Sh6i1jEVTlhUpN+BNjPFMtjfw3SlwhsY0gwAYg4Kj3+wJjPLEASA1JGOssVbIUReGlbCs2HaM8zK/9ESAjA1musszPFUQUSrYs99nrEyflAgMgTVxNvpehVEuK6C1jsdqyl8REIBoMNMDWH4x9LEOwptdQdkLMhEZHJtqhdIwyqRpCRbetqJl3teBMEkuP4BYgrdcZRgCEgw6+mSgSghUHEoqVkKyswRxJOLp0m9miDBp53iFo/WE6QmAMxjMK8+nsSQeWupKqP0r4VFpXWbpFwAgMj/wHCd/LDc8jgUi4Bz7c6roasbKP/BelvIMRyWOMB+biKeJdJkRMEStldZlxkiqQJje0iBHvRF9568DKoKWOiH4aHOzo0+8Mcu0y92qEGOsWMy5XoGxMlOLxzhEwBlm8qovqwQvc6oTEcSjJbQolFbPUc4dVZlKlJS3q7qHVUakKo4qI1IVR5URKa3AePzuo8rEUFJeq4TciueXOYojTOpGownbilX8sLdjBERQmlJxXpcsuf3k4Ivki3r0VcqjT9mrXL4fsczWmjBSwhirVnKUDRFwBoKPoRIPobNPylEH4EuwMoyVf3IPkTYNKxI5FicFVgREUIrSCR61mdblloMBiFKeYQniyOX7S76XA4RNCRErVu1/LBuloSbOLbPs7hUAgM6+EuLnJYjD9Yql38wQBMSZSMRriajaPF0GCCg1zKgTxqiD34clUyjBco/KyhABYyxfGNRalupOhofBMwDGoLamAYigAmcrHJMQzGoyyl5QEDFQ1DUg+ajLhUa7BCEy1y0odWRxhP8fw5mpFOaKUCqmNcRiTYzzahi+DIhIcJjbbOpRl+q8A0QIJA3mNR/1b49SHMSYKBQznudY5jvLSIemmR1Qg5SoNCiNiGAZOhbV6ZRsSAezZxSyOfa7py0laSxJ52MQBNAaYhE2q8EobzQgAQgG2YLuHpCjn+8zymWFwgNji04uYsd1eFAUAhFoDVKhUqg1MAaWqdM1siYpG9OyuSFoTAfJuIpFNBfEEH0/OqulZtuuvoglqvVgJYDgS5rfaLbWG3554iAQHPuyKltQfNSb4RKWFT9wc4XBuvRMPwCtGQEITrap0zWyMS0b0kFDWjakZSqhbEsLRgSgFCqNgUQ/QKWpJhVZuqD+tS1dUVtUtTF6wmbXBa1mIsayxRLWhWFCcezvlwVXxyKj7akcvThAKdk/sH/ZohNqEn5jnW6uD5rqZE1SJuPKtjRjoDUojUqh76NHGP4WICACIhARcDztpBl3P/Q6YtUpLQEE1BpOOs7mLCzkL8PnIM5xV6cfyHC3WGGHFIKAJ6K7Pvmh/VoWbAsYgtIYLitOOBAzHGh2QA2HXAG1L88+dWYybo1llP8xiNIUj7JTF0b8oExvFACJaGtbaUOFR59bIS74vv09Al0A5ris4DDPx0AiADAExoAdThNvvRND15VLjqtfODftesEYD+85dmAIXkBzm83jWk3XL/MIBIZQcGlXh2+UMr9ltG+lNdgW3757YG971jI5IjB2eAvxLgRKx1L2Bavmu15lzrY8FkBEz9erToimYlyVFRwNW207+4K93YElYPQh6tHrkAzOBjPO1l19wuTljSpniNpXF593XNQ2VHXY+ejQRLbJzlse80uc6HXQFcA0cFeHnykoXsoJG6XVcwRSr9/YjrzMQwwZQ9cJli9rXrKg3nFldWU5IgzB9WlBq7lsruV4ZXesEGe4cacrS5ncAqX1rRCZBn/+lfbADcpuhg6UjiftK9+3uLqyjAZE9Hx63+mJZIyVt6ZAOFXM069sd4wSp4qVVn0escXrW7p3tw3aVplRcMYwcIOr1iypT0cDqarqeHekonSSrTkj7volD6cOIQLLwLbuYMubvm2O2+xzIjAE7x1wnn+l3bCM8oTMEB1HLl5Yf/7Kubm8z3i1iHVEOIO8q1cujS1sNR2vzHYyTWSZ+MoOZyBfcsNLac+GABDh98/thsMeL3XYXyHSmpSm4bm2iKA1ffyGFbYlSqhZO/bQhJaBN1yQKjvZFkIEz21yymiEKk0cWutoxHhqfVtHZ9YyxbvbKKVIazINHo+ZybgVsQwAkEojYqHgrzpj9lkrZuYLHq8aj8PBGRRctWKhfcbxkUK5JzwSgClYZ59cv6UYsUoekF2i5SCwDLGvM/v0C21WxBhpQ0tERJRM2fGY2dVbWPdy+5PPt23b3YeIqdqoEExKzQT/xI2nElXD6IeHAIjgxotqBCu/9EtriFj4wtZiZ580jJLrf0svC0UggEce33HdB04Y4YbIMLhpsAfXbvnJ/a+/+Gp7V09WKZVKRhcf1/CBCxd/9NqTGutigwPFD6xZcun5C371+x01SVuNfozZMQBnmC2o81fE1pyeyDplzqYFAAAChMdfKUBZB3KULA6tdSxiPv7cnr1tAy2NcT94m6OkNZmmyBW9z/71o/f88rVAFdLJ9OKFcy3L6Nzf+/SLO55+cceP73v1619ec96Zc6TUn/mTMx99alfV83gHmkgIvOmSWoLw2LRyLkIElsHauoLnNjkRG8v4kEs/jIfAMnl7V+7Rp3aZUfPgQCcRCcEcL7jhz+/7yQMvNzUkb7v1r3776M8eW/uztY/c/fhv/+fuH3599cpTX9+279pP3PvbZ3ZzBqtOn/Ohq04ayDii6nkcgHPMFPRVq5Irl0bzRVX2eD1NELXwqY3FrgFpinIa88t55zAa9vOHN3mOzw+6dyKIRMy/vf33jz2zbeHcGT/76X9+6cufX3r8Its2OWPNTQ1/+IdXPfzQj6+/+tL+TObmWx95szOrib7wZ2e3Nic9X1ZDYnCgdKO5VnzyynTZsY0QhuB49PC6bHkDCKFMcWiKx8x1G/Y988KbsZgZ2iulKRo1n9+w76cPvFpfG//ut792zuqz+jq6HMdRShNREAT9vf2C8+/d+S8Xnb9y256O7/z0ZcZwTmvN//nsefmiX922AABHKLr6s39QN6vRcIMyYxsQlhXa7IWtzoZyj6OGshupETAI9I9/8SoOV8oTcZPf++s3MvmBa6++7D0Xru7v7jFNgzEWxvMR0TCE47ixaORzn/2EbZoP/WZrT2+hUPQ/cs3JV685vm/AEeXN5z1aEBwH8nrNGfFrz0tlxnD6DgxNmodfPJkJSjlD4x2U+TC01om4+b9P7nh9c1ckYmhNnDMn772wsYOhcfGa8yk4fP5FCJ7P50879aQlC4/bsbd3845e2xauF/zTFy+c05pynGO3zoMhOL5urRdfvLHBD8bkoRNBxGKb93hPbizG7TIPWoCyxUEwFEr/7//ZaEQMpYlzlsl5nd3ZVDwxd85MKQ/fxICISulkMjFv3kwvcNo7c9zgjiNnz6z5xpcvDqSG8qrgpjlh4Z5U8OWbmmY2GG4wppGBWlPExP95IjOQU6KMitMDlG/GlaZkzLx/7Rtv7h2wLUFECICIRDSaw9uIaHiqg+CYGXTWXLDoS586t3eweAw6H5zjYE596qr0BSvig3k1lg+ACCwT93YFa1/IxyJlHhsYUv5dEJFliraO7Pfu2WDHTc9XNUl7ZnMyU8jt3LVXGIc/boeIhOADA5mdO9siZmR2a4qkRkQhWC7jfP6Tqz505Um9/cVjyvkQHPqz8spzk5+8oi6TH9N3HQAUQczm9/wu01HuFP1hxvQMlNY1Sfu7d728+Y0u2xJWxDjzlJlE8le/fgwFP2zURUoVSyTWPf/y1h27Fs1vPH5BvesdWIAIPDf4xm2XnHParEzWPUYiH5xjtqhPWxK97aYmNxhrNDCMbbyx173rt5lklI+x2m5MD4AIDMH6Bop3/PAFO2L4bvAHlx2fTtXd/9DaXz7wSLq5IQgCrXWYatGagiCIx6P9ff1f++c7fKmuuXhJuj7mB0On+zCGgdSWwe+549r5s9OZvHfU64NzzBf17Ebzjk+3GAKlhDG640RkGfjDtYNlJOgPZayfvlS6NhX56QOvPfdiG+Ns+dLmj/3hisGce/MtX3zkobXp5qZ4PGYYQggRiVjpxvqBwexHPnrLU89vOGnx7I/feKpb8A/esHGGrhvU1UZ+dsc1rU2JXME/itcXwaHg6KZaccdnWmoTouzK8mG0hkSEv7DFeeDpbCpafuXYMNhQO2eMl+CMZfPu+WfPu/+713ueZBw//JkH7lv7en1N7MM3XnPlFRfPmzvbMEVPd9/Tz6y/879+uuH1ba1N9fd++5ozTpmZz7v8kI9EKp1K2pu391z5sXvau3KphCXl0ZaWExxzRdVUK773V60LZ1rZoh67ldQEEQv/9Pb2ZzcX46Nua3sXKiAOABCc9Q0437v98g9fuzyf8wDhi7f/7vv3bCi4GduIzWhpME2jp6e/L9MPYJ69Yt7Xv7zm1BNasjl3pI2JlDqVsjdv67n+5nt3tQ2kErY8itK2gmO2oGY3mXd8pmXRTCtTGKsTCgBSQTrB7nk884XvdNXGSzir612ojDgQMQhUfTr6+D0frU3ZWlMsZj75/N6f3P/6ug37OvYPSqlra2LLFjde9b7F112+NBYxj1jmo5SOx8yeAeeGm+99+sV99bWRo0AfCMA59Gf1aUsid3y6pTYhCu5YMvJDhAftDOTU9V9p68+qspMp77zbiogDAIRgvf3Fj39wxTf/4fJMf5ExTMRM4Kyvr7C/Jy8lpWvslqaEMHkx7yulRxMJVUpblggUfPKv77/7V9vrUhbAaGIoUxSGQAADOXXVucmv3NRkCnR9qojPrTTVJvgX7+y667FMOskr1W1aMXEAAGOYy3s/v+MPLrtoUSbjMESisPCHI4KU2g+U1sTY6HONRCDIz+b2PPuNezu/+cCAYBCx2HRstRUcHU9LRX9+dd3NV9S5gZaytKmgI6E0pWL8Ny/lb/73zrjNxhL1egcVFQei58uGutjv7/lofTrqe5IxJBqaqI9Y6phbQuRaBfs3Px44uXSN/diLub//QVd7b1ATF5qmzYAgRGCIg3nZWm98+Y+bLjg1nskrKPuA2LcTnlfdn1XXf6WtL6vGGPV6B5XcKGqiiG20dWQ+d9ujxoEtKCIwhoxh6a18CIh9O9dLN8sNoy8TnH9K7K5bZ605IzGYV1LR2J24CUBwlIoG82rNGYm7bp11/imx/qwstcf4iG9x24+6O3qlbVT4NOcKRxGk0umayC8eeePf7lyXqI2UvwUlYtwY2PuKM9jJhAlEgmOmoBpqxB2fnvGPH29KRHh/TiLClI2TcQaI0J+TiQj/x4833fHpGQ01oiIbk2Gkoto4v/NX/Y+sz9VUaIdyMJVcVoauiAAErq8e+t715509L1NGCSARM6xs59aBPa8wwzx4fFjojdbEWFt38K0H++9/KisVJaOMSjxJZFxhDBAgW9SC41XnJj95RXp2ozFY0ABjDYAejFKUivNnNxU/9rV2U4zLNJzKiwPChmlPNtXHf3PXh1oa4o4rS9itETFhOoMdPduexREOhFOabJPZJq7bVPyvRwZ+v6GACDGbMYTJ3e1yBpqg4GoiOP+U2J9cUnvWsqjrk+uPqXLnULQG28SeQfnBr77Zm1GWMabJtSMxLuIAAMHZYM4965SZD//gBiAY5d4ViJAL6ea73nhcqwCRj/R9IAJNlIhwAFj7Qu6nj2U2bHfcgOI2EwJJT+iOlyEgQykp72rbwFMWRm68MLXm9AQA5BxVjrv1rmgCzgAB/vif9m3Y7iaiZc7tOCLjJQ4AEIL1DTjXX770h/92VaHoAx2x/58AGWjV9cYTgZNFLo44jzI8UDARYUrT+i3O3b/NPLep2J9Vlom2ieFeevxUwhAQURO5Pnk+pZN85bLoDRekzlgS4QxzjgaqzGb1YMKRYFGbffabnQ8/l6uNs/FLLYyjOABAcNbTX/zCn5391c9fkM04R6ziQcZ7tz9bHOgIndBRvovSgAhxmyHCjg5/7frcoy/kd3T4rkeWiZaBnGEYPRu7M48Y+g2oNHkBeT7ZFi6YYb7v9PiaMxILZphEkHd1eMLBeBBGNW7/Wc+3H+xPJ8Q42YyQ8RUHAHDOevoK//BX7/38Z87L9ORHzLISMcMa2LMh27mVGVYZj1FrIICIhbaJ2YLetMd74pXCM68XdncGeUcxhqZAw0DOhpqSaeif8M3febWhOcwQTsEber3SEATkS9Ka4hE+r8U454TYectjy+ZayRhzfXI8whIPvCkJqaihRvz7vX1f+1lPXXJ8lQETIA5EQMC843/zK5f80QdPzfQWDqMPIiasXNf2/j0vl2QzDiX0RTjDiMUMAdmC3tHuv7zNeXWXu6Pdb+8NCo6WCgBBMGAMBQcAOHR7GQZhpQKtSWoAAsEhFmGt9caCVvOk+faKRZEFrWYyxgIJjqeVpor7FofcEtSn+F2PDf7dD7ojFo52gPkYGHdxwIHC0kLR/9ZXL/3oDadm+t6uDyImTDfb3bP1KajcYeZah0c1oG2iKVATZAu6vTd4syfYs99v6wo6+mQmr/pzSmnK5N+5bqfijDNMJ3gqzmfUidlNxtxmc1aD0VpvJGOMIfiSXJ+UJgQcP1MxjFRUlxJ3/3bwS9/rjtqIOBHzwSdCHBCOiiMqFIM7vnrJH33otGxvnmGYYSFkQnqFrjee0NJ7l+1J2eih+D0KDqZAQ2A4eT2Q5AVUdLVU0Jt5W78dEdSnhOAQtZlloCEQEbSGQJIvSSoAIEScmCaKMP9QnxI/+c3gl77fFbXYxCgDJkwccMB+FN3g1ltWf+GTq/J5jzRxxgh09xtP+sUB5MZ4/6UP+KRhrgfD8akIeOj5RVICAWk9rK3wNyoZxRoNREPbsW890Pf1+/ptc4JsRkj5J3OVChEhYjxi/u3tv8vl/dv+8j2OIzWxgV3rvUL/GF2NUcLwgJN5AKUAgIJDTqgJXzGkhklqpNEaBAfbYrff3fOtB/trExwO5zuPHxNnOYbeD4Ex1ttfvOEDy779/z7gdG7av2uTadvVIzbegVQUtZjU9Dd3dj30TDadmIRE9ESLI0Rw1jfonn1K0+0fS7XWi8G8FocPlB+jSEU1cb6vJ/jct/a/uNUZj6TaaJgccUDY5ZYPZjRY//inTeeeGB3Ma6poXmqaogkQoCbOn3qt8Dd3dnX2BslYxSq7SmXSxAEAnKPraSD41DV1H7887SvyPM2nQ5XGOKEUWRYzOX734f5v3NcHALZZgQ6DsplMcUBYVkkwWFCXnJG49SONLXUiU6h8pmrqE8buUjHe2Sdv+1H3I+tzNTGOCJNbMDvJ4gAABGAcM3k1o17c+uHGNWfEiy65vp4WhV4VQSqyTRa1ce36/G0/7u7olak412ryXfTJF0cIZ+gF2pd03XtSN19Z19ogBvPjktWcUoRZ5Zo4a++RdzzQ9/PHM6ZAy5jMpeRgpoo44IA3OpjXMxvELdfUXbEqyRDzjp740NMEEIbj4hGmiR58Ovv1X/Tt65E1cQYwyUvJwUwhcYQIjq6vix6tPin651fVnb4k4gXkuPrA9KhpDxFoTRGbWQa+sMX55v19T75ajFpom1Ou5WLKiQMOxCVzRW0IvHJV8iNrapbOsQuudn3N2ARlNMYDTaA12SaL2WzzXvdHawcfeDobSEpEWUVqTSrOVBRHSJgeyxR0bZx/8ILU9e9NzWkyHV+Pd83EeDBcaxIx2d4u/57fZe76bWYgr1IxFqb0piZTVxwhnKFUlC2q1jojHLO3dK6lFBRcrWncSyjGSLhBZYgxm3EOm/d49z6RWbs+394XJKNccJwijudITHVxwIG9rh/ovEO1CXbeybFrzk2dviQSsVjR015AAEc4mHKCIRpyKi0DoxZzPP3CFucXT2We2FgYyOl4BE2DTYWd6hGZBuIICTvnpKSCqwXHUxbal69MnHtSbE6jQQCOT35AAJNpS0I7AYCmgRETEWBvd/DUq4WHn8tt2O5KRTGbCYFaT59GzukijmE4AyIouDqQ1Jw2zloWfc/y2OmLIy11AhE8n7wgPPgHJ8CcHDASxBAtAy0TiaCzT76w1Xn8lcK6TcX9/YEhMGYznOyemjKYfuIICYt0fElFTyNAS504Y0lk5bLo8gWRWY1G1GJSkS8pkKQ0DJ08cODA7LKhsGxzqDAZOQNDoClQcCx6+s3u4JUdznObiuu3OJ19kgCiFjMFhkVD05HpKo6Q4fiYH5DjExHUJvjiWdYpC+2Tj7PnzzBb6kTUYoyBUiAVSUVSA71V3DV8mXdCw38MvQIRQTAQHAVHzkFrKHq6s0/u6vA37nQ3bHe3vukN5BQiREw0DYS3Cs+mK9NbHMMMt5NIRa6vAwmCQyrOZzcax80wF8+25reYzXWiLsETMW4KNIbLRxCUBtLwtgHhBMiAs7fkESjwJeUKqi+n9vfJXZ3+1jZvZ4ff1h1k8koqMATYJhO8Yg0yU4GjRBzDIAAyQEACkgr8gAJJRGAIiNosFeONtaImxprSIhXjLXVCSmiuE4kICzujACDsR8o5en+fFAI6+2SmoLr65WBBdw/ITEEVXR1IQARDoGmg4ENvR/poO5HsaBPHweBBE2OISBEoRVKB0vSWb0ggBHB828hOBFBEUr5lTjgDzlBw4Bz5Qdek8W8emUQmrsB44qGwHHf4yFII/cewjBwPetnhnvDhXkPD25OjY9k4EkezOA5leLtx5O6Y0bzmaGdapSiqTCxVcVQZkao4qoxIVRxVRqQqjiojUhVHlRGpiqPKiFTFUWVEquKoMiJVcVQZkao4qozI/wf/XnETlItyvQAAAABJRU5ErkJggg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#15111f;
+    --surface:#1f1930;
+    --surface-2:#2a2240;
+    --line:#352b4d;
+    --text:#f2eae4;
+    --text-dim:#b8adc4;
+    --text-faint:#8a7fa0;
+    --menstrual:#c1495a;
+    --follicular:#d9a441;
+    --ovulatory:#f4d58d;
+    --luteal:#7c6fa6;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif;}
+  body{
+    min-height:100vh;
+    padding:32px 18px 60px;
+    display:flex;
+    justify-content:center;
+  }
+  .wrap{width:100%; max-width:440px;}
+  .brand{
+    display:flex; align-items:baseline; justify-content:space-between;
+    margin-bottom:28px;
+  }
+  .brand h1{
+    font-family:'Fraunces',serif; font-weight:500; font-size:28px;
+    letter-spacing:0.3px;
+  }
+  .brand p{color:var(--text-faint); font-size:12.5px; margin-top:2px;}
+  .gear{
+    background:none; border:1px solid var(--line); color:var(--text-dim);
+    width:34px; height:34px; border-radius:50%; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    transition:border-color .2s, color .2s;
+  }
+  .gear:hover{border-color:var(--text-dim); color:var(--text);}
+  .gear svg{width:16px; height:16px;}
+
+  /* Setup form */
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:18px;
+    padding:24px 22px; margin-bottom:18px;
+  }
+  .card h2{font-family:'Fraunces',serif; font-weight:500; font-size:18px; margin-bottom:6px;}
+  .card .sub{color:var(--text-faint); font-size:13px; line-height:1.5; margin-bottom:20px;}
+  label{display:block; font-size:12px; color:var(--text-dim); margin-bottom:6px; margin-top:16px;}
+  label:first-of-type{margin-top:0;}
+  input{
+    width:100%; background:var(--surface-2); border:1px solid var(--line);
+    color:var(--text); padding:12px 13px; border-radius:10px; font-size:15px;
+    font-family:'JetBrains Mono', monospace;
+  }
+  input:focus{outline:none; border-color:var(--text-faint);}
+  .row2{display:flex; gap:12px;}
+  .row2 > div{flex:1;}
+  button.primary{
+    margin-top:22px; width:100%; padding:13px; border:none; border-radius:10px;
+    background:var(--ovulatory); color:#231a0f; font-weight:600; font-size:14.5px;
+    cursor:pointer; font-family:'Inter',sans-serif;
+  }
+  button.ghost{
+    margin-top:10px; width:100%; padding:11px; border:1px solid var(--line);
+    border-radius:10px; background:none; color:var(--text-dim); font-size:13px;
+    cursor:pointer; font-family:'Inter',sans-serif;
+  }
+  .hidden{display:none !important;}
+
+  /* Dial */
+  .dial-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:22px;
+    padding:30px 20px 24px; margin-bottom:18px; text-align:center;
+  }
+  .dial-outer{
+    width:230px; height:230px; border-radius:50%; margin:0 auto 18px;
+    position:relative;
+  }
+  .dial-ring{
+    width:100%; height:100%; border-radius:50%;
+  }
+  .dial-inner{
+    position:absolute; top:17px; left:17px; right:17px; bottom:17px;
+    background:var(--surface); border-radius:50%;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+  }
+  .dial-inner .day{
+    font-family:'JetBrains Mono', monospace; font-size:34px; font-weight:500;
+  }
+  .dial-inner .day span{font-size:15px; color:var(--text-faint);}
+  .dial-inner .phase-name{
+    font-family:'Fraunces',serif; font-size:16px; margin-top:4px;
+  }
+  .dial-marker{
+    position:absolute; width:14px; height:14px; border-radius:50%;
+    background:var(--bg); border:2.5px solid var(--text);
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 0 4px var(--surface);
+  }
+  .dial-legend{
+    display:flex; justify-content:center; gap:14px; flex-wrap:wrap; font-size:11.5px;
+    color:var(--text-dim); margin-bottom:14px;
+  }
+  .dial-legend .dot{width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:5px;}
+  .countdown{color:var(--text-dim); font-size:13.5px; line-height:1.5;}
+  .countdown b{color:var(--text); font-weight:600;}
+
+  .log-btn{
+    margin-top:16px; width:100%; padding:12px; border-radius:10px;
+    background:var(--surface-2); border:1px solid var(--line); color:var(--text);
+    font-size:13.5px; cursor:pointer; font-family:'Inter',sans-serif;
+  }
+
+  /* Phase detail cards */
+  .phase-card{
+    background:var(--surface); border-radius:18px; margin-bottom:12px;
+    border:1px solid var(--line); overflow:hidden;
+  }
+  .phase-card.active{border-color:var(--accent);}
+  .phase-head{
+    display:flex; align-items:center; gap:12px; padding:16px 18px; cursor:pointer;
+    user-select:none;
+  }
+  .phase-moon{width:30px; height:30px; flex-shrink:0;}
+  .phase-head .titles{flex:1;}
+  .phase-head h3{font-family:'Fraunces',serif; font-weight:500; font-size:16px;}
+  .phase-head .range{font-size:11.5px; color:var(--text-faint); font-family:'JetBrains Mono',monospace; margin-top:1px;}
+  .now-tag{
+    font-size:10px; letter-spacing:0.5px; text-transform:uppercase;
+    background:var(--accent); color:#1a1425; padding:3px 8px; border-radius:20px;
+    font-weight:600; flex-shrink:0;
+  }
+  .chevron{width:14px; height:14px; color:var(--text-faint); transition:transform .2s; flex-shrink:0;}
+  .phase-card.open .chevron{transform:rotate(180deg);}
+  .phase-body{
+    max-height:0; overflow:hidden; transition:max-height .35s ease;
+  }
+  .phase-body-inner{padding:0 18px 20px; font-size:14px; line-height:1.65; color:var(--text-dim);}
+  .phase-body-inner h4{
+    font-size:11px; text-transform:uppercase; letter-spacing:0.6px; color:var(--accent);
+    margin-top:16px; margin-bottom:6px; font-weight:600;
+  }
+  .phase-body-inner h4:first-child{margin-top:0;}
+  .phase-body-inner p{margin-bottom:10px;}
+  .phase-body-inner ul{padding-left:18px; display:flex; flex-direction:column; gap:8px;}
+  .phase-body-inner li{padding-left:2px;}
+
+  .footnote{
+    color:var(--text-faint); font-size:12px; line-height:1.6; text-align:center;
+    padding:18px 12px 4px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <div>
+      <h1>maré</h1>
+      <p id="brandSub">acompanhar o ciclo dela, fase a fase</p>
+    </div>
+    <button class="gear hidden" id="gearBtn" aria-label="Editar dados">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+    </button>
+  </div>
+
+  <div id="storageStatus" style="display:none; font-size:11.5px; font-family:'JetBrains Mono',monospace; padding:8px 12px; border-radius:8px; margin-bottom:14px; border:1px solid var(--line);"></div>
+
+  <!-- Setup card -->
+  <div class="card" id="setupCard">
+    <h2>Começar</h2>
+    <div class="sub">Só precisas de saber quando começou o último período dela. O resto é calculado — e podes ajustar sempre que precisares.</div>
+    <label for="lastStart">Início do último período</label>
+    <input type="date" id="lastStart">
+    <div class="row2">
+      <div>
+        <label for="cycleLen">Duração do ciclo (dias)</label>
+        <input type="number" id="cycleLen" value="28" min="18" max="45">
+      </div>
+      <div>
+        <label for="periodLen">Duração do período (dias)</label>
+        <input type="number" id="periodLen" value="5" min="1" max="10">
+      </div>
+    </div>
+    <button class="primary" id="saveBtn">Guardar</button>
+    <button class="ghost hidden" id="cancelBtn">Cancelar</button>
+
+    <label for="restoreCode" style="margin-top:22px;">Já tens um código? Cola-o aqui para restaurar</label>
+    <input type="text" id="restoreCode" placeholder="ex: eyJsYXN0U3RhcnQi...">
+    <button class="ghost" id="restoreBtn" style="margin-top:8px;">Restaurar a partir do código</button>
+  </div>
+
+  <div class="card hidden" id="backupCard">
+    <h2>O teu código de segurança</h2>
+    <div class="sub">Como o armazenamento automático está com um problema neste ambiente, guarda este código nas Notas do telemóvel: toca no campo abaixo, mantém pressionado para selecionar tudo, e escolhe "copiar". Cola-o depois nas Notas. Se os dados se perderem, cola-o de volta no campo "restaurar" acima.</div>
+    <input type="text" id="backupCode" readonly style="font-size:12px;">
+  </div>
+
+  <!-- Dial -->
+  <div class="dial-card hidden" id="dialCard">
+    <div class="dial-outer">
+      <div class="dial-ring" id="dialRing"></div>
+      <div class="dial-inner">
+        <div class="day"><span id="dayNum"></span></div>
+        <div class="phase-name" id="dialPhaseName"></div>
+      </div>
+      <div class="dial-marker" id="dialMarker"></div>
+    </div>
+    <div class="dial-legend" id="dialLegend"></div>
+    <div class="countdown" id="countdown"></div>
+    <button class="log-btn" id="logBtn">Hoje começou o período dela</button>
+  </div>
+
+  <!-- Phase cards container -->
+  <div id="phaseList"></div>
+
+  <div class="footnote">
+    Isto é conhecimento geral sobre o ciclo — o dela pode não seguir este padrão à risca. A fonte mais fiável é sempre ela própria; usa isto como mapa, não como manual.
+  </div>
+
+</div>
+
+<script>
+const PHASES = {
+  menstrual: {
+    key:'menstrual', name:'Fase Menstrual', accent:'var(--menstrual)', accentHex:'#c1495a', moon:'new',
+    physical:"É o início do ciclo: estrogénio e progesterona estão no ponto mais baixo, o que despoleta a descamação do endométrio — a menstruação. Prostaglandinas fazem o útero contrair para expelir esse tecido, o que causa as cólicas. É comum sentir fadiga, dor lombar, enxaquecas, sensibilidade nas mamas, alterações digestivas e uma ligeira queda de energia e temperatura corporal.",
+    emotional:"Com as hormonas em baixa, é normal que ela procure mais recolhimento — menos vontade social, mais vontade de estar tranquila. Não é 'estar mal-disposta': é frequentemente o corpo a pedir descanso e menos estímulo. Para muitas mulheres esta fase até traz alívio emocional depois da tensão dos dias anteriores.",
+    tips:[
+      "Tem um saco de água quente ou almofada térmica pronta — ajuda muito nas cólicas.",
+      "Assume tarefas sem pedir para o fazer — folga real vale mais do que perguntar \"precisas de ajuda?\".",
+      "Evita marcar compromissos sociais grandes nestes dias, se a escolha for tua.",
+      "Pergunta se ela quer companhia ou espaço — as duas coisas são válidas e variam de mês para mês.",
+      "Tem à mão o que ela costuma gostar nestes dias, sem esperar que peça.",
+      "Se a dor parecer fora do normal — incapacitante, todos os meses — incentiva-a com carinho a falar com um médico. Comum não é sinónimo de normal."
+    ]
+  },
+  follicular: {
+    key:'follicular', name:'Fase Folicular', accent:'var(--follicular)', accentHex:'#d9a441', moon:'crescent',
+    physical:"Depois da menstruação, o estrogénio sobe de forma constante, estimulando o desenvolvimento de folículos nos ovários. A energia física recupera de forma visível — o cansaço e as dores da fase anterior tendem a desaparecer, e a disposição para atividade física aumenta.",
+    emotional:"É frequentemente a fase mais otimista do ciclo: maior abertura a ideias novas, mais motivação, melhor concentração e capacidade de resolver problemas. Muitas mulheres sentem-se mais sociáveis e com mais vontade de começar coisas.",
+    tips:[
+      "Boa altura para propor planos novos — viagens, projetos, jantares fora.",
+      "Aproveita para conversas mais ambiciosas ou decisões importantes, se surgirem.",
+      "Convida-a para atividade física em conjunto, se for algo que gostem de fazer a dois.",
+      "Apoia a energia dela sem sobrecarregar — é fase de construir, não de acelerar tudo de uma vez."
+    ]
+  },
+  ovulatory: {
+    key:'ovulatory', name:'Fase Ovulatória', accent:'var(--ovulatory)', accentHex:'#f4d58d', moon:'full',
+    physical:"O estrogénio atinge o pico, o que desencadeia a subida da hormona luteinizante (LH) e a libertação do óvulo. A testosterona também sobe ligeiramente. É frequentemente o pico de energia física do ciclo, e algumas mulheres sentem uma pontada ligeira num dos lados do abdómen — sinal normal da ovulação.",
+    emotional:"Costuma ser a fase em que ela se sente \"mais ela própria\": mais confiante, mais comunicativa, mais sociável. É também, biologicamente, a janela de maior fertilidade do ciclo — relevante ou não, consoante os vossos planos.",
+    tips:[
+      "Boa janela para conversas importantes — a comunicação tende a fluir melhor.",
+      "É uma fase natural para sair, socializar, estar com outras pessoas.",
+      "Se ela mencionar uma pontada ou desconforto abdominal ligeiro, é normal — não é motivo de alarme.",
+      "Se a fertilidade for relevante para os vossos planos, esta é a fase-chave a ter em conta."
+    ]
+  },
+  luteal: {
+    key:'luteal', name:'Fase Lútea', accent:'var(--luteal)', accentHex:'#7c6fa6', moon:'waning',
+    physical:"Depois da ovulação, a progesterona sobe e, se não houver gravidez, cai a pique nos últimos dias do ciclo junto com o estrogénio. Essa queda hormonal no fim da fase é a causa direta da TPM: inchaço, sensibilidade nas mamas, dores de cabeça, alterações do sono, mais apetite — sobretudo por doce ou salgado — e fadiga crescente à medida que se aproxima a menstruação.",
+    emotional:"Esta fase não é uniforme: no início costuma ser estável, por vezes até produtiva, graças ao efeito calmante inicial da progesterona. É nos últimos dias — tipicamente entre 3 a 7 dias antes da menstruação — que é mais provável surgir irritabilidade, ansiedade, tristeza ou menor tolerância à frustração. É aqui que mais vale a tua paciência.",
+    tips:[
+      "Não leves para o lado pessoal uma resposta mais seca nos últimos dias desta fase — é fisiológico, não é sobre ti.",
+      "Reduz fricções evitáveis: não é a melhor altura para decisões grandes, se puderem esperar uns dias.",
+      "Adianta-te em tarefas práticas antes de ela pedir.",
+      "Valida o que ela sente sem tentar \"consertar\" ou racionalizar — às vezes o que ajuda é só ouvir.",
+      "Se os sintomas parecerem extremos mês após mês, sugere com carinho que fale com um médico — não para diagnosticar, mas para que tenha apoio profissional se precisar."
+    ]
+  }
+};
+
+const MOONS = {
+  new: `<circle cx="15" cy="15" r="12" fill="#2a2240" stroke="#c1495a" stroke-width="1.5"/>`,
+  crescent: `<circle cx="15" cy="15" r="12" fill="#d9a441"/><circle cx="20" cy="15" r="11" fill="#2a2240"/>`,
+  full: `<circle cx="15" cy="15" r="12" fill="#f4d58d"/>`,
+  waning: `<circle cx="15" cy="15" r="12" fill="#7c6fa6"/><circle cx="10" cy="15" r="11" fill="#2a2240"/>`
+};
+
+let state = null;
+
+function encodeState(s){
+  try{ return btoa(JSON.stringify(s)); }catch(e){ return ''; }
+}
+function decodeState(code){
+  try{ return JSON.parse(atob(code.trim())); }catch(e){ return null; }
+}
+function showBackupCode(){
+  if(!state) { document.getElementById('backupCard').classList.add('hidden'); return; }
+  document.getElementById('backupCard').classList.remove('hidden');
+  document.getElementById('backupCode').value = encodeState(state);
+}
+
+function computePhases(cycleLength, periodLength){
+  let ovCenter = cycleLength - 14;
+  if(ovCenter < periodLength + 2) ovCenter = periodLength + 2;
+  const ovStart = Math.max(periodLength+1, ovCenter-1);
+  const ovEnd = Math.min(cycleLength-1, ovCenter+1);
+  const follStart = periodLength+1;
+  const follEnd = Math.max(follStart, ovStart-1);
+  const lutStart = ovEnd+1;
+  const lutEnd = cycleLength;
+  return [
+    {...PHASES.menstrual, start:1, end:periodLength},
+    {...PHASES.follicular, start:follStart, end:follEnd},
+    {...PHASES.ovulatory, start:ovStart, end:ovEnd},
+    {...PHASES.luteal, start:lutStart, end:lutEnd}
+  ];
+}
+
+function currentDay(lastStart, cycleLength){
+  const today = new Date(); today.setHours(0,0,0,0);
+  const start = new Date(lastStart+'T00:00:00');
+  const diff = Math.floor((today-start)/86400000);
+  let d = (diff % cycleLength) + 1;
+  if(d<=0) d += cycleLength;
+  return d;
+}
+
+function phaseForDay(day, phases){
+  return phases.find(p => day>=p.start && day<=p.end) || phases[phases.length-1];
+}
+
+function render(){
+  if(!state){
+    document.getElementById('setupCard').classList.remove('hidden');
+    document.getElementById('dialCard').classList.add('hidden');
+    document.getElementById('phaseList').innerHTML='';
+    document.getElementById('gearBtn').classList.add('hidden');
+    document.getElementById('cancelBtn').classList.add('hidden');
+    return;
+  }
+  document.getElementById('gearBtn').classList.remove('hidden');
+  document.getElementById('setupCard').classList.add('hidden');
+  document.getElementById('dialCard').classList.remove('hidden');
+
+  const {lastStart, cycleLength, periodLength} = state;
+  const phases = computePhases(cycleLength, periodLength);
+  const day = currentDay(lastStart, cycleLength);
+  const active = phaseForDay(day, phases);
+
+  // dial ring
+  let acc=0;
+  const stops = phases.map(p=>{
+    const len = p.end-p.start+1;
+    const from = acc/cycleLength*100;
+    acc += len;
+    const to = acc/cycleLength*100;
+    return `${p.accentHex} ${from}% ${to}%`;
+  }).join(', ');
+  document.getElementById('dialRing').style.background = `conic-gradient(from -90deg, ${stops})`;
+
+  document.getElementById('dayNum').innerHTML = `${day}<span>/${cycleLength}</span>`;
+  document.getElementById('dialPhaseName').textContent = active.name;
+  document.getElementById('dialPhaseName').style.color = active.accent;
+
+  // marker position
+  const angle = (-90 + (day-0.5)/cycleLength*360) * Math.PI/180;
+  const R = 98; // radius to ring center, dial is 230px wide
+  const cx = 115, cy = 115;
+  const mx = cx + R*Math.cos(angle);
+  const my = cy + R*Math.sin(angle);
+  const marker = document.getElementById('dialMarker');
+  marker.style.left = mx+'px';
+  marker.style.top = my+'px';
+  marker.style.borderColor = active.accentHex;
+
+  // legend
+  document.getElementById('dialLegend').innerHTML = phases.map(p=>
+    `<span><span class="dot" style="background:${p.accentHex}"></span>${p.name.replace('Fase ','')}</span>`
+  ).join('');
+
+  // countdown
+  const daysToNextPeriod = cycleLength - day + 1;
+  let countText = '';
+  if(active.key==='menstrual'){
+    const daysLeft = active.end - day;
+    countText = daysLeft>0 ? `<b>${daysLeft}</b> dia(s) até ao fim do período.` : `Último dia (provável) do período.`;
+  } else {
+    countText = `<b>${daysToNextPeriod}</b> dia(s) até ao próximo período previsto.`;
+  }
+  document.getElementById('countdown').innerHTML = countText;
+
+  // phase cards
+  const list = document.getElementById('phaseList');
+  list.innerHTML = phases.map(p=>{
+    const isActive = p.key===active.key;
+    const rangeLabel = `dia ${p.start}${p.end>p.start? '–'+p.end : ''}`;
+    return `
+    <div class="phase-card ${isActive?'active open':''}" data-key="${p.key}" style="--accent:${p.accentHex}">
+      <div class="phase-head" onclick="toggleCard('${p.key}')">
+        <svg class="phase-moon" viewBox="0 0 30 30">${MOONS[p.moon]}</svg>
+        <div class="titles">
+          <h3>${p.name}</h3>
+          <div class="range">${rangeLabel}</div>
+        </div>
+        ${isActive? '<span class="now-tag" style="background:'+p.accentHex+'">agora</span>':''}
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="phase-body" id="body-${p.key}">
+        <div class="phase-body-inner">
+          <h4 style="color:${p.accentHex}">O que se passa no corpo</h4>
+          <p>${p.physical}</p>
+          <h4 style="color:${p.accentHex}">O que pode sentir-se emocionalmente</h4>
+          <p>${p.emotional}</p>
+          <h4 style="color:${p.accentHex}">Como podes ajudar</h4>
+          <ul>${p.tips.map(t=>`<li>${t}</li>`).join('')}</ul>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // set open heights
+  phases.forEach(p=>{
+    const body = document.getElementById('body-'+p.key);
+    if(p.key===active.key){
+      body.style.maxHeight = body.scrollHeight+'px';
+    }
+  });
+}
+
+function toggleCard(key){
+  const card = document.querySelector(`.phase-card[data-key="${key}"]`);
+  const body = document.getElementById('body-'+key);
+  const isOpen = card.classList.contains('open');
+  if(isOpen){
+    body.style.maxHeight='0px';
+    card.classList.remove('open');
+  } else {
+    body.style.maxHeight = body.scrollHeight+'px';
+    card.classList.add('open');
+  }
+}
+
+function showStatus(msg, ok){
+  const el = document.getElementById('storageStatus');
+  el.style.display = 'block';
+  el.style.color = ok ? 'var(--text-faint)' : 'var(--menstrual)';
+  el.style.borderColor = ok ? 'var(--line)' : 'var(--menstrual)';
+  el.textContent = msg;
+}
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem('mare-data');
+    if(raw){
+      state = JSON.parse(raw);
+      showStatus('dados carregados.', true);
+    } else {
+      showStatus('primeira utilização — sem dados guardados ainda.', true);
+    }
+  }catch(e){
+    state = null;
+    showStatus('o armazenamento local não está disponível neste browser (ex: modo privado) — usa o código de segurança abaixo.', false);
+  }
+  render();
+  showBackupCode();
+}
+
+function saveState(){
+  try{
+    localStorage.setItem('mare-data', JSON.stringify(state));
+    showStatus('guardado.', true);
+  }catch(e){
+    showStatus('não foi possível guardar (' + (e && e.message ? e.message : 'erro') + ') — usa o código de segurança abaixo.', false);
+  }
+}
+
+document.getElementById('saveBtn').addEventListener('click', async ()=>{
+  const lastStart = document.getElementById('lastStart').value;
+  const cycleLength = parseInt(document.getElementById('cycleLen').value) || 28;
+  const periodLength = parseInt(document.getElementById('periodLen').value) || 5;
+  if(!lastStart){ alert('Indica a data de início do último período.'); return; }
+  state = {lastStart, cycleLength, periodLength};
+  await saveState();
+  document.getElementById('cancelBtn').classList.add('hidden');
+  render();
+  showBackupCode();
+});
+
+document.getElementById('restoreBtn').addEventListener('click', async ()=>{
+  const code = document.getElementById('restoreCode').value;
+  if(!code){ alert('Cola primeiro o código.'); return; }
+  const decoded = decodeState(code);
+  if(!decoded || !decoded.lastStart){ alert('Código inválido.'); return; }
+  state = decoded;
+  await saveState();
+  document.getElementById('cancelBtn').classList.add('hidden');
+  render();
+  showBackupCode();
+});
+
+document.getElementById('gearBtn').addEventListener('click', ()=>{
+  document.getElementById('setupCard').classList.remove('hidden');
+  document.getElementById('lastStart').value = state.lastStart;
+  document.getElementById('cycleLen').value = state.cycleLength;
+  document.getElementById('periodLen').value = state.periodLength;
+  document.getElementById('cancelBtn').classList.remove('hidden');
+});
+
+document.getElementById('cancelBtn').addEventListener('click', ()=>{
+  document.getElementById('setupCard').classList.add('hidden');
+});
+
+document.getElementById('logBtn').addEventListener('click', async ()=>{
+  const today = new Date();
+  const iso = today.toISOString().slice(0,10);
+  if(!confirm('Confirmar: o período dela começou hoje?')) return;
+  state.lastStart = iso;
+  await saveState();
+  render();
+});
+
+loadState();
+
+
+</script>
+</body>
+</html>
