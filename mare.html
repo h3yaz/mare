@@ -52,7 +52,7 @@
   }
   .gear:hover{border-color:var(--text-dim); color:var(--text);}
   .gear svg{width:16px; height:16px;}
-
+ 
   /* Setup form */
   .card{
     background:var(--surface); border:1px solid var(--line); border-radius:18px;
@@ -81,7 +81,7 @@
     cursor:pointer; font-family:'Inter',sans-serif;
   }
   .hidden{display:none !important;}
-
+ 
   /* Dial */
   .dial-card{
     background:var(--surface); border:1px solid var(--line); border-radius:22px;
@@ -119,13 +119,13 @@
   .dial-legend .dot{width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:5px;}
   .countdown{color:var(--text-dim); font-size:13.5px; line-height:1.5;}
   .countdown b{color:var(--text); font-weight:600;}
-
+ 
   .log-btn{
     margin-top:16px; width:100%; padding:12px; border-radius:10px;
     background:var(--surface-2); border:1px solid var(--line); color:var(--text);
     font-size:13.5px; cursor:pointer; font-family:'Inter',sans-serif;
   }
-
+ 
   /* Phase detail cards */
   .phase-card{
     background:var(--surface); border-radius:18px; margin-bottom:12px;
@@ -159,7 +159,7 @@
   .phase-body-inner p{margin-bottom:10px;}
   .phase-body-inner ul{padding-left:18px; display:flex; flex-direction:column; gap:8px;}
   .phase-body-inner li{padding-left:2px;}
-
+ 
   .footnote{
     color:var(--text-faint); font-size:12px; line-height:1.6; text-align:center;
     padding:18px 12px 4px;
@@ -168,7 +168,7 @@
 </head>
 <body>
 <div class="wrap">
-
+ 
   <div class="brand">
     <div>
       <h1>maré</h1>
@@ -178,13 +178,14 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
     </button>
   </div>
-
+ 
   <div id="storageStatus" style="display:none; font-size:11.5px; font-family:'JetBrains Mono',monospace; padding:8px 12px; border-radius:8px; margin-bottom:14px; border:1px solid var(--line);"></div>
-
+ 
   <!-- Setup card -->
   <div class="card" id="setupCard">
     <h2>Começar</h2>
-    <div class="sub">Só precisas de saber quando começou o último período dela. O resto é calculado — e podes ajustar sempre que precisares.</div>
+    <div class="sub">Só precisas de saber quando começou o último período dela. Esta data é a âncora do cálculo: é ela que determina em que dia do ciclo estás hoje e, por isso, qual a fase atual — não muda o conteúdo de cada fase, só que fase é "agora". Se a escreveres errada, corrige a qualquer momento tocando no ícone ⚙️ no topo.</div>
+    <div class="sub" style="margin-top:-10px;">A duração do ciclo e do período (28/5 por defeito) definem o tamanho de cada fase — ajusta-as se souberes que o ciclo dela costuma ser mais curto ou mais longo.</div>
     <label for="lastStart">Início do último período</label>
     <input type="date" id="lastStart">
     <div class="row2">
@@ -199,18 +200,12 @@
     </div>
     <button class="primary" id="saveBtn">Guardar</button>
     <button class="ghost hidden" id="cancelBtn">Cancelar</button>
-
+ 
     <label for="restoreCode" style="margin-top:22px;">Já tens um código? Cola-o aqui para restaurar</label>
     <input type="text" id="restoreCode" placeholder="ex: eyJsYXN0U3RhcnQi...">
     <button class="ghost" id="restoreBtn" style="margin-top:8px;">Restaurar a partir do código</button>
   </div>
-
-  <div class="card hidden" id="backupCard">
-    <h2>O teu código de segurança</h2>
-    <div class="sub">Como o armazenamento automático está com um problema neste ambiente, guarda este código nas Notas do telemóvel: toca no campo abaixo, mantém pressionado para selecionar tudo, e escolhe "copiar". Cola-o depois nas Notas. Se os dados se perderem, cola-o de volta no campo "restaurar" acima.</div>
-    <input type="text" id="backupCode" readonly style="font-size:12px;">
-  </div>
-
+ 
   <!-- Dial -->
   <div class="dial-card hidden" id="dialCard">
     <div class="dial-outer">
@@ -225,16 +220,25 @@
     <div class="countdown" id="countdown"></div>
     <button class="log-btn" id="logBtn">Hoje começou o período dela</button>
   </div>
-
+ 
   <!-- Phase cards container -->
   <div id="phaseList"></div>
-
+ 
   <div class="footnote">
     Isto é conhecimento geral sobre o ciclo — o dela pode não seguir este padrão à risca. A fonte mais fiável é sempre ela própria; usa isto como mapa, não como manual.
   </div>
-
+ 
+  <div style="text-align:center; margin-top:18px;">
+    <button class="ghost" id="toggleBackupBtn" style="width:auto; padding:8px 16px; font-size:11.5px;">Código de segurança (backup offline)</button>
+  </div>
+  <div class="card hidden" id="backupCard" style="margin-top:12px;">
+    <h2>O teu código de segurança</h2>
+    <div class="sub">Guarda isto só se quiseres um backup manual (ex: para usar noutro telemóvel). No dia a dia, com o GitHub Pages, não precisas disto — os dados já ficam guardados automaticamente. Toca no campo, mantém pressionado, seleciona tudo e copia.</div>
+    <input type="text" id="backupCode" readonly style="font-size:12px;">
+  </div>
+ 
 </div>
-
+ 
 <script>
 const PHASES = {
   menstrual: {
@@ -285,16 +289,16 @@ const PHASES = {
     ]
   }
 };
-
+ 
 const MOONS = {
   new: `<circle cx="15" cy="15" r="12" fill="#2a2240" stroke="#c1495a" stroke-width="1.5"/>`,
   crescent: `<circle cx="15" cy="15" r="12" fill="#d9a441"/><circle cx="20" cy="15" r="11" fill="#2a2240"/>`,
   full: `<circle cx="15" cy="15" r="12" fill="#f4d58d"/>`,
   waning: `<circle cx="15" cy="15" r="12" fill="#7c6fa6"/><circle cx="10" cy="15" r="11" fill="#2a2240"/>`
 };
-
+ 
 let state = null;
-
+ 
 function encodeState(s){
   try{ return btoa(JSON.stringify(s)); }catch(e){ return ''; }
 }
@@ -302,11 +306,10 @@ function decodeState(code){
   try{ return JSON.parse(atob(code.trim())); }catch(e){ return null; }
 }
 function showBackupCode(){
-  if(!state) { document.getElementById('backupCard').classList.add('hidden'); return; }
-  document.getElementById('backupCard').classList.remove('hidden');
+  if(!state) { return; }
   document.getElementById('backupCode').value = encodeState(state);
 }
-
+ 
 function computePhases(cycleLength, periodLength){
   let ovCenter = cycleLength - 14;
   if(ovCenter < periodLength + 2) ovCenter = periodLength + 2;
@@ -323,7 +326,7 @@ function computePhases(cycleLength, periodLength){
     {...PHASES.luteal, start:lutStart, end:lutEnd}
   ];
 }
-
+ 
 function currentDay(lastStart, cycleLength){
   const today = new Date(); today.setHours(0,0,0,0);
   const start = new Date(lastStart+'T00:00:00');
@@ -332,11 +335,11 @@ function currentDay(lastStart, cycleLength){
   if(d<=0) d += cycleLength;
   return d;
 }
-
+ 
 function phaseForDay(day, phases){
   return phases.find(p => day>=p.start && day<=p.end) || phases[phases.length-1];
 }
-
+ 
 function render(){
   if(!state){
     document.getElementById('setupCard').classList.remove('hidden');
@@ -349,12 +352,12 @@ function render(){
   document.getElementById('gearBtn').classList.remove('hidden');
   document.getElementById('setupCard').classList.add('hidden');
   document.getElementById('dialCard').classList.remove('hidden');
-
+ 
   const {lastStart, cycleLength, periodLength} = state;
   const phases = computePhases(cycleLength, periodLength);
   const day = currentDay(lastStart, cycleLength);
   const active = phaseForDay(day, phases);
-
+ 
   // dial ring
   let acc=0;
   const stops = phases.map(p=>{
@@ -365,11 +368,11 @@ function render(){
     return `${p.accentHex} ${from}% ${to}%`;
   }).join(', ');
   document.getElementById('dialRing').style.background = `conic-gradient(from -90deg, ${stops})`;
-
+ 
   document.getElementById('dayNum').innerHTML = `${day}<span>/${cycleLength}</span>`;
   document.getElementById('dialPhaseName').textContent = active.name;
   document.getElementById('dialPhaseName').style.color = active.accent;
-
+ 
   // marker position
   const angle = (-90 + (day-0.5)/cycleLength*360) * Math.PI/180;
   const R = 98; // radius to ring center, dial is 230px wide
@@ -380,12 +383,12 @@ function render(){
   marker.style.left = mx+'px';
   marker.style.top = my+'px';
   marker.style.borderColor = active.accentHex;
-
+ 
   // legend
   document.getElementById('dialLegend').innerHTML = phases.map(p=>
     `<span><span class="dot" style="background:${p.accentHex}"></span>${p.name.replace('Fase ','')}</span>`
   ).join('');
-
+ 
   // countdown
   const daysToNextPeriod = cycleLength - day + 1;
   let countText = '';
@@ -396,7 +399,7 @@ function render(){
     countText = `<b>${daysToNextPeriod}</b> dia(s) até ao próximo período previsto.`;
   }
   document.getElementById('countdown').innerHTML = countText;
-
+ 
   // phase cards
   const list = document.getElementById('phaseList');
   list.innerHTML = phases.map(p=>{
@@ -425,16 +428,18 @@ function render(){
       </div>
     </div>`;
   }).join('');
-
-  // set open heights
+ 
+  // set open heights — use a generous fixed value instead of scrollHeight,
+  // since scrollHeight measured before web fonts finish loading can be too small
+  // and permanently clip the text.
   phases.forEach(p=>{
     const body = document.getElementById('body-'+p.key);
     if(p.key===active.key){
-      body.style.maxHeight = body.scrollHeight+'px';
+      body.style.maxHeight = '3000px';
     }
   });
 }
-
+ 
 function toggleCard(key){
   const card = document.querySelector(`.phase-card[data-key="${key}"]`);
   const body = document.getElementById('body-'+key);
@@ -443,11 +448,11 @@ function toggleCard(key){
     body.style.maxHeight='0px';
     card.classList.remove('open');
   } else {
-    body.style.maxHeight = body.scrollHeight+'px';
+    body.style.maxHeight = '3000px';
     card.classList.add('open');
   }
 }
-
+ 
 function showStatus(msg, ok){
   const el = document.getElementById('storageStatus');
   el.style.display = 'block';
@@ -455,7 +460,7 @@ function showStatus(msg, ok){
   el.style.borderColor = ok ? 'var(--line)' : 'var(--menstrual)';
   el.textContent = msg;
 }
-
+ 
 function loadState(){
   try{
     const raw = localStorage.getItem('mare-data');
@@ -472,7 +477,7 @@ function loadState(){
   render();
   showBackupCode();
 }
-
+ 
 function saveState(){
   try{
     localStorage.setItem('mare-data', JSON.stringify(state));
@@ -481,7 +486,7 @@ function saveState(){
     showStatus('não foi possível guardar (' + (e && e.message ? e.message : 'erro') + ') — usa o código de segurança abaixo.', false);
   }
 }
-
+ 
 document.getElementById('saveBtn').addEventListener('click', async ()=>{
   const lastStart = document.getElementById('lastStart').value;
   const cycleLength = parseInt(document.getElementById('cycleLen').value) || 28;
@@ -493,7 +498,7 @@ document.getElementById('saveBtn').addEventListener('click', async ()=>{
   render();
   showBackupCode();
 });
-
+ 
 document.getElementById('restoreBtn').addEventListener('click', async ()=>{
   const code = document.getElementById('restoreCode').value;
   if(!code){ alert('Cola primeiro o código.'); return; }
@@ -505,7 +510,7 @@ document.getElementById('restoreBtn').addEventListener('click', async ()=>{
   render();
   showBackupCode();
 });
-
+ 
 document.getElementById('gearBtn').addEventListener('click', ()=>{
   document.getElementById('setupCard').classList.remove('hidden');
   document.getElementById('lastStart').value = state.lastStart;
@@ -513,11 +518,11 @@ document.getElementById('gearBtn').addEventListener('click', ()=>{
   document.getElementById('periodLen').value = state.periodLength;
   document.getElementById('cancelBtn').classList.remove('hidden');
 });
-
+ 
 document.getElementById('cancelBtn').addEventListener('click', ()=>{
   document.getElementById('setupCard').classList.add('hidden');
 });
-
+ 
 document.getElementById('logBtn').addEventListener('click', async ()=>{
   const today = new Date();
   const iso = today.toISOString().slice(0,10);
@@ -526,10 +531,14 @@ document.getElementById('logBtn').addEventListener('click', async ()=>{
   await saveState();
   render();
 });
-
+ 
+document.getElementById('toggleBackupBtn').addEventListener('click', ()=>{
+  document.getElementById('backupCard').classList.toggle('hidden');
+});
+ 
 loadState();
-
-
+ 
+ 
 </script>
 </body>
 </html>
